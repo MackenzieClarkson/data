@@ -1,0 +1,25 @@
+1, Accident and Emergency, 1
+2, Anaesthetics, 1
+3, Diagnostic imaging, 1
+4, Discharge lounge, 1
+5, Ear nose and throat, 1
+6, Gastroenterology, 1
+7, General surgery, 1
+8, Gynaecology, 1
+9, Haematology, 1
+10, Maternity departments, 1
+11, Microbiologyy, 1
+12, Neonatal unit, 1
+13, Nephrology, 1
+14, Neurology, 1
+15, Nutrition and dietetics, 1
+16, Obstetrics, 1
+17, Oncology, 1
+18, Ophthalmology, 1
+19, Orthopaedics, 1
+20, Pharmacy, 1
+21, Physiotherapy, 1
+22, Radiotherapy, 1
+23, Renal unit, 1
+24, Rheumatology, 1
+25, Urology, 1

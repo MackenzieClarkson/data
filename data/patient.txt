@@ -11,10 +11,10 @@
 5216666OT, Limmy Go, 211 Jimmy Dr., 534-231-3123, M, 2001-05-23 
 1111111XX, Winnie Pooh, 106 Jump St., 934-211-3121, F, 2005-05-23 
 9821381YX, Slimmy Jimmy, 999 Jump Ave., 594-230-3126, M, 2006-05-23
-9821382YX, Rimmy Jimmy, 999 Route Ave., 539-230-3126, M, 2006-05-23  
+9821382YX, Rimmy Jammy, 999 Route Ave., 539-230-3126, M, 2006-05-23  
 9821383YX, Ay Jimmy, 999 October Ave., 534-230-9126, M, 2006-05-23  
 9821384YX, AJ Philips, 999 April Ave., 534-990-3126, M, 2006-05-23  
 9821385YX, Abaz Labaz, 112 Electric Ave., 534-290-3126, M, 2006-05-23  
 9821386YX, Remi Doglas, 990 Electric Ave., 534-135-3126, M, 2006-05-23  
 9821387YX, Kim Lim, 999 Ele Ave., 555-230-3126, F, 2006-05-23  
-9821388YX, Slimmy Jimmy, 999 Elec Ave., 534-555-3126, M, 2006-05-23  
+9821388YX, Slimmy Jimmy, 999 Elec Ave., 534-555-3126, M, 2006-05-23 

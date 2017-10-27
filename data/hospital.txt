@@ -1,0 +1,6 @@
+1, Hospital of Ontario Institute of Technology, 2000 Simcoe St Oshawa ON, 905-721-8668
+2, Carleton Hospital, 1125 Colonel By Dr Ottawa ON, 613-520-2600
+3, Hospital of Waterloo, 200 Hospital AVE W Waterloo ON, 519-888-4567
+4, McMaster Hospital, 1280 Main St W Hamilton ON, 905-525-9140
+5, Hospital of Toronto, 27 Kings College Cir Toronto ON, 416-978-2011
+6, Queens Hospital, 99 Hospital AVE Kingston ON, 613-533-2000
