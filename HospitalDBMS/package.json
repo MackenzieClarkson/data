@@ -1,0 +1,22 @@
+{
+  "name": "hospitaldbms",
+  "version": "1.0.0",
+  "description": "A DBMS that could be used for a hospital",
+  "main": "db/app.js",
+  "scripts": {
+    "populate": "node ./db/app.js",
+    "start": "node ./web/app.js"
+  },
+  "author": "Luke Baal",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "bunyan": "^1.8.12",
+    "eslint": "^4.9.0",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "pug": "^2.0.0-rc.4",
+    "rc": "^1.2.2"
+  }
+}
