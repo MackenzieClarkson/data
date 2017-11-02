@@ -1,25 +1,25 @@
-11, Accident and Emergency Room, 1
-12, Anaesthetics Room, 2
-13, Diagnostic imaging Room, 3
-14, Discharge lounge, 4
-15, Ear nose and throat Room, 5
-21, Gastroenterology Room, 6
-22, General surgery Room, 7
-23, Gynaecology Room, 8
-24, Haematology Room, 9
-25, Maternity department, 10
-31, Microbiology Room, 11
-32, Neonatal unit, 12
-33, Nephrology Room, 13
-34, Neurology Room, 14
+11, Accident and Emergency Room, 1, Availible
+12, Anaesthetics Room, 2, occupied
+13, Diagnostic imaging Room, 3, Availible
+14, Discharge lounge, 4, occupied
+15, Ear nose and throat Room, 5, Availible
+21, Gastroenterology Room, 6, occupied
+22, General surgery Room, 7, Availible
+23, Gynaecology Room, 8, occupied
+24, Haematology Room, 9, occupied
+25, Maternity department, 10,Availible
+31, Microbiology Room, 11, occupied
+32, Neonatal unit, 12, Availible
+33, Nephrology Room, 13,Availible
+34, Neurology Room, 14,Availible
 35, Nutrition and dietetics Room, 15
-41, Obstetrics Room, 16
-42, Oncology Room, 17
-43, Ophthalmology Room, 18
-44, Orthopaedics Room, 19
-45, Pharmacy Room, 20
-51, Physiotherapy Room, 21
-52, Radiotherapy Room, 22
-53, Renal unit Room, 23
-54, Rheumatology Room, 24
-55, Urology Room, 25
+41, Obstetrics Room, 16, occupied
+42, Oncology Room, 17,Availible
+43, Ophthalmology Room, 18,Availible
+44, Orthopaedics Room, 19, occupied
+45, Pharmacy Room, 20 ,Availible
+51, Physiotherapy Room, 21, Availible
+52, Radiotherapy Room, 22, occupied
+53, Renal unit Room, 23, Availible
+54, Rheumatology Room, 24, Availible
+55, Urology Room, 25, occupied
