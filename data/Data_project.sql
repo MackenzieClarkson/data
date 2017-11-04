@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `hospital_project` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `hospital_project`;
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
 -- Host: localhost    Database: hospital_project
 -- ------------------------------------------------------
--- Server version	5.7.19-log
+-- Server version	5.7.20-0ubuntu0.17.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -256,6 +256,7 @@ CREATE TABLE `staff` (
   `BirthDate` datetime DEFAULT NULL,
   `Dno` int(11) DEFAULT NULL,
   `Position` varchar(45) NOT NULL,
+  `Salary` int(10) DEFAULT NULL,
   PRIMARY KEY (`Ssn`),
   KEY `fk_Staff_1_idx` (`Dno`),
   CONSTRAINT `fk_Staff_1` FOREIGN KEY (`Dno`) REFERENCES `department` (`Dno`) ON DELETE SET NULL ON UPDATE CASCADE
@@ -280,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-27 12:06:15
+-- Dump completed on 2017-11-04 12:13:55

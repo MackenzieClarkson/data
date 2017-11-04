@@ -1,20 +1,20 @@
-1234, John Smith, 123 road st, 999-0123, M, 1981-01-01 00:00:00,1, Nurse
-1235, Maggie Smith, 124 road st, 999-0124, F, 1981-02-02 00:00:00,2, Nurse
-1264, Randy Savage, 125 road st, 999-4123, M, 1981-02-03 00:00:00, 3, Nurse
-1284, Harriet Tubman, 126 road st, 999-4123, F, 1981-03-01 00:00:00, 4, Nurse
-1255, Isaiah Thomas, 126 street rd, 999-9123, M, 1989-02-07 00:00:00, 5, Point Guard
-1277, Bill Laimbeer, 127 street rd, 999-4423, M, 1957-05-19 00:00:00, 6, Center
-1134, Jason Dill, 128 avenue ln, 999-0993, M, 1981-03-02 00:00:00,7,Nurse
-2234, Rick James, 129 avenue ln, 999-0148, M, 1981-03-04 00:00:00,8,Nurse
-5684, Clay Davis, 130 lane ave, 999-016, M, 1981-03-05 00:00:00,9,Nurse
-8444, Dave McCain, 131 canal cres, 999-0567, M, 1981-06-06 00:00:00, 10, Nurse
-2234, rohn Smith, 223 road st, 899-0123, M, 1981-01-01 00:00:00,11, Nurse
-2235, raggie Smith, 224 road st, 899-0124, F, 1981-02-02 00:00:00,12, Nurse
-2264, bandy Savage, 225 road st, 899-4123, M, 1981-02-03 00:00:00, 13, Nurse
-2284, rarriet Tubman, 226 road st, 899-4123, F, 1981-03-01 00:00:00, 14, Nurse
-2255, rsaiah Thomas, 226 street rd, 899-9123, M, 1989-02-07 00:00:00, 15, Point Guard
-2277, rill Laimbeer, 227 street rd, 899-4423, M, 1957-05-19 00:00:00, 16, Center
-2134, rason Dill, 228 avenue ln, 899-0993, M, 1981-03-02 00:00:00,17,Nurse
-3234, bick James, 229 avenue ln, 899-0148, M, 1981-03-04 00:00:00,18,Nurse
-2684, rlay Davis, 230 lane ave, 899-016, M, 1981-03-05 00:00:00,19,Nurse
-2444, rave McCain, 231 canal cres, 899-0567, M, 1981-06-06 00:00:00, 20, Nurse
+1234, John Smith, 123 road st, 999-0123, M, 1981-01-01 00:00:00,1, Nurse , 80000
+1235, Maggie Smith, 124 road st, 999-0124, F, 1981-02-02 00:00:00,2, Nurse, 80000
+1264, Randy Savage, 125 road st, 999-4123, M, 1981-02-03 00:00:00, 3, Nurse, 80000
+1284, Harriet Tubman, 126 road st, 999-4123, F, 1981-03-01 00:00:00, 4, Nurse, 80000
+1255, Isaiah Thomas, 126 street rd, 999-9123, M, 1989-02-07 00:00:00, 5, Point Guard, 1000000
+1277, Bill Laimbeer, 127 street rd, 999-4423, M, 1957-05-19 00:00:00, 6, Center, 2000000
+1134, Jason Dill, 128 avenue ln, 999-0993, M, 1981-03-02 00:00:00,7,Nurse, 80000
+2234, Rick James, 129 avenue ln, 999-0148, M, 1981-03-04 00:00:00,8,Nurse, 80000
+5684, Clay Davis, 130 lane ave, 999-016, M, 1981-03-05 00:00:00,9,Nurse, 80000
+8444, Dave McCain, 131 canal cres, 999-0567, M, 1981-06-06 00:00:00, 10, Nurse, 80000
+2234, rohn Smith, 223 road st, 899-0123, M, 1981-01-01 00:00:00,11, Nurse, 80000
+2235, raggie Smith, 224 road st, 899-0124, F, 1981-02-02 00:00:00,12, Nurse, 80000
+2264, bandy Savage, 225 road st, 899-4123, M, 1981-02-03 00:00:00, 13, Nurse, 80000
+2284, rarriet Tubman, 226 road st, 899-4123, F, 1981-03-01 00:00:00, 14, Nurse, 80000
+2255, rsaiah Thomas, 226 street rd, 899-9123, M, 1989-02-07 00:00:00, 15, Point Guard, 1000000
+2277, rill Laimbeer, 227 street rd, 899-4423, M, 1957-05-19 00:00:00, 16, Center, 2000000
+2134, rason Dill, 228 avenue ln, 899-0993, M, 1981-03-02 00:00:00,17,Nurse, 80000
+3234, bick James, 229 avenue ln, 899-0148, M, 1981-03-04 00:00:00,18,Nurse, 80000
+2684, rlay Davis, 230 lane ave, 899-016, M, 1981-03-05 00:00:00,19,Nurse, 80000
+2444, rave McCain, 231 canal cres, 899-0567, M, 1981-06-06 00:00:00, 20, Nurse, 81000
