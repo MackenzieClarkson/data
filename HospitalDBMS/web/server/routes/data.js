@@ -1,7 +1,10 @@
 'use strict';
 
-module.exports = function(log, patients){
+module.exports = function(log, departments, rooms){
     return function(req, res){
-        res.render('patient-selection.pug', {patients: patients});
+        res.render('home.pug', {
+            departments: departments,
+            rooms: rooms
+        });
     };
 };
