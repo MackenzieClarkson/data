@@ -1,0 +1,46 @@
+extends ./layouts/default
+block content
+  include ./components/patientnav
+  .container
+    h2 Patient Lookup
+    .row
+      .col.s12
+        .card.green.darken-2
+          .card-content.white-text
+            span.card-title Select Patient
+            .row
+              .input-field.col.s12
+                select#patient_select
+                  option Choose an option... 
+                  for patient in patients
+                    option(id=patient.Hcn)= patient.PName
+                label(for="patient_select")
+        
+      .col.s12
+        .card.green.darken-2
+          .card-content.white-text
+            span.card-title Patient info
+            ul.collection
+              li.collection-item.green#name
+              li.collection-item.green#room
+    script.
+      $(document).ready(function () {
+        $('#patient_select').on('change', function() {
+          //Get the selected patients HCN
+          let selected = $('option:selected').attr('id');
+          let patients = !{JSON.stringify(patients)};
+
+
+          //get patient info from array by patient HCN
+          let patient = $.grep(patients, function(patient){
+             return patient.Hcn == selected;
+          })[0];
+
+          $('#name').html("Patient Name: "+patient.PName);
+          $('#room').html("Room #"+patient.Rno+": "+patient.RName);
+
+        });
+
+        $('select').material_select();
+      });
+      

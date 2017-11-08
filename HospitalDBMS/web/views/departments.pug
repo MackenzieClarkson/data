@@ -1,0 +1,64 @@
+//- .card.blue.darken-2
+//-     .card-content.white-text
+//-         span.card-title Select a Room
+//-         .row
+//-             .col.s12.m6
+//-                 select(id="department_select")
+//-                     for department in departments
+//-                         option(id=department.Dno, value=department.Dno) #{department.DName}
+//-                 label(for="department_select") Select a Department
+//-             .col.s12.m6
+//-                 select(id="room_select")
+//-                     for room in rooms
+//-                         option(id=room.Rno, value=room.Dno) #{room.RName}
+//-                     label(for="room_select") Select a Room
+                
+//- script.
+//-     $(document).ready(function () {
+//-         var selectedValue = $('#department_select').val();
+
+//-         $("#room_select option").each(function () {
+//-             if ($(this).val() != selectedValue) {
+//-                 $(this).toggle();
+//-             }
+//-         });
+
+//-         $('select').material_select();
+//-     });
+
+//-     $('#department_select').on('change', function () {
+//-         var selectedValue = $('#department_select').val();
+
+//-         $("#room_select option").each(function () {
+//-             if ($(this).val() != selectedValue) {
+//-                 $(this).prop('disabled', true);
+//-             } else {
+//-                 $(this).prop('disabled', false);
+//-             }
+//-         });
+
+//-         $('select').material_select();
+//-     });
+extends ./layouts/default
+block content
+    .container        
+        h2 Departments
+        for department in departments
+            .card.blue.darken-2
+                .card-content
+                    span.card-title= department.DName
+                    ul.collection.dep(id=department.Dno)
+                        
+
+        script.
+            $(document).ready(function () {
+                $('ul.dep').each(function (key, value) {
+                    let rooms = !{JSON.stringify(rooms)};
+                    //get player info from array by player id
+                    let room = $.grep(rooms, function(room){
+                        return room.Dno == $( value ).attr('id');
+                    })[0];
+                    $(this).append(`<li class="collection-item">Room #: ${room.Rno}</li>
+                                    <li class="collection-item">Room Name: ${room.RName}</li>`);
+                });
+            });                      

@@ -54,10 +54,7 @@ const getRecords = (log, options, connection) => {
             } else {
                 log.info('Got data');
                 data = JSON.parse(response.body);
-                // response = response.resultSets[0];
-                // data = response.rowSet;
-                // console.log('%j', data);
-
+                
                 //set headers as keys
                 data = data.map((record) => {
                     const recordObj = [];

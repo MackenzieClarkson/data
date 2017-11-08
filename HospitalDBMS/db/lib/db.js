@@ -48,7 +48,7 @@ const getPatients = (connection, log) => {
 
 const getRecords = (connection, log) => {
     return new Promise ((resolve, reject) => {
-        connection.query(`SELECT P.PName, R.* 
+        connection.query(`SELECT P.PName, R.*
                           FROM patient AS P, patientrecords AS R
                           WHERE P.Hcn=R.PHcn`, (err, response) => {
             if (err){
@@ -61,9 +61,35 @@ const getRecords = (connection, log) => {
     });
 };
 
+const getDoctors = (connection, log) => {
+  return new Promise ((resolve, reject) => {
+    connection.query('SELECT * FROM doctors', (err, response) => {
+      if (err){
+        reject(err);
+      }else{
+        log.info('Got Doctors');
+        resolve(response);
+      }
+    });
+  });
+};
+
+const getStaff = (connection, log) => {
+  return new Promise ((resolve, reject) => {
+    connection.query('SELECT * FROM staff ORDER BY Dno', (err, response) => {
+      if (err){
+        reject(err);
+      }else{
+        log.info('Got Staff');
+        resolve(response);
+      }
+    });
+  });
+};
+
 const getView1 = (connection, log) => {
     return new Promise ((resolve, reject) => {
-        connection.query(`SELECT * 
+        connection.query(`SELECT *
                           FROM department AS D, rooms AS R
                           WHERE D.Dno=R.Dno`, (err, response) => {
             if (err){
@@ -90,11 +116,28 @@ const getView2 = (connection, log) => {
     });
 };
 
+const getFindPatients = (connection, log) => {
+    return new Promise ((resolve, reject) => {
+        connection.query(`SELECT *
+                          FROM find_patient`, (err, response) => {
+            if (err){
+                reject(err);
+            }else{
+                log.info('Got find_patients');
+                resolve(response);
+            }
+        });
+    });
+};
+
 module.exports = {
     getDepartments,
     getRooms,
     getPatients,
     getRecords,
+    getDoctors,
+    getStaff,
     getView1,
-    getView2
+    getView2,
+    getFindPatients
 };

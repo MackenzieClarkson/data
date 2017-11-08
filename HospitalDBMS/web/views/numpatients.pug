@@ -1,15 +1,13 @@
 extends ./layouts/default
 block content
-    div.container
+    include ./components/patientnav
+    .container
         h2 Number of Patients Per Department    
         .row
             for entry in num_patients_department
                 .col.s12.m6                
-                    .card.blue.darken-2
+                    .card.green.darken-2
                         .card-content.white-text
                             span.card-title= 'Department #'+entry.Dno +  ": " + entry.DName
                             p.card-content= "# of Patients: "+entry.numPatients
-                            //- ul.collection.card-content
-                            //-     li.blue.darken-3.white-text= "Department #: "+entry.Dno
-                            //-     li.blue.darken-3.white-text= "# of Patients: "+entry.numPatients
                     

@@ -1,0 +1,25 @@
+extends ./layouts/default
+block content
+    include ./components/staffnav
+    div.container
+        h2 Staff
+        .row
+          for department in departments
+            .row
+              .col.s12
+                .card.purple.darken-4.white-text
+                  .card-content
+                    span.card-title= "Department #"+department.Dno+": "+department.DName
+                    .row
+                      for emp in staff
+                        if department.Dno==emp.Dno
+                          .col.s12.m4
+                            .card.purple.darken-3
+                                .card-content.white-text
+                                    span.card-title= emp.SName
+                                    ul.collection.purple
+                                        li.collection-item.purple.darken-1= "SSN: "+emp.Ssn
+                                        li.collection-item.purple.darken-1= "Gender: "+emp.Gender
+                                        li.collection-item.purple.darken-1= "Date of Birth: "+emp.BirthDate.toLocaleDateString()
+                                        li.collection-item.purple.darken-1= "Address: "+emp.Address
+                                        li.collection-item.purple.darken-1= "Telephone: "+emp.Telephone

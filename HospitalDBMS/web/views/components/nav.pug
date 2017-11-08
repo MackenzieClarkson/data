@@ -1,20 +1,11 @@
-ul#dropdown1.dropdown-content
-            li
-                a(href="patients") All
-            li
-                a(href="patientsbydepartment") By Department
-            li
-                a(href="patientrecords") Records
-
-nav.blue.darken-2
+nav.darken-3
     .nav-wrapper.white-text
         a.brand-logo.center(href="/") Hospital DBMS
         ul
             li
                 a(href="/") Home
-            li
+            li#patients
                 a.dropdown-button(href="#!" data-activates="dropdown1") Patients 
                     i.material-icons.right arrow_drop_down
 
-            
-        
+    block content   
