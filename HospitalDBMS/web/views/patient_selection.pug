@@ -15,7 +15,7 @@ block content
                   for patient in patients
                     option(id=patient.Hcn)= patient.PName
                 label(for="patient_select")
-        
+
       .col.s12
         .card.green.darken-2
           .card-content.white-text
@@ -33,7 +33,7 @@ block content
 
           //get patient info from array by patient HCN
           let patient = $.grep(patients, function(patient){
-             return patient.Hcn == selected;
+            return patient.Hcn == selected;
           })[0];
 
           $('#name').html("Patient Name: "+patient.PName);
@@ -43,4 +43,3 @@ block content
 
         $('select').material_select();
       });
-      

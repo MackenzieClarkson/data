@@ -1,17 +1,17 @@
 extends ./layouts/default
 block content
-    include ./components/patientnav
-    div.container
-        h2 Patients
-        .row
-            for patient in patients
-                .col.s12.m4
-                    .card.green.darken-3
-                        .card-content.white-text
-                            span.card-title= patient.PName
-                            ul.collection.green
-                                li.collection-item.green.darken-1= "SSN: "+patient.Hcn
-                                li.collection-item.green.darken-1= "Gender: "+patient.Gender
-                                li.collection-item.green.darken-1= "Date of Birth: "+patient.BirthDate.toLocaleDateString()
-                                li.collection-item.green.darken-1= "Address: "+patient.Address
-                                li.collection-item.green.darken-1= "Telephone: "+patient.Telephone
+  include ./components/patientnav
+  div.container
+    h2 Patients
+    .row
+      for patient in patients
+        .col.s12.m4
+          .card.green.darken-3
+            .card-content.white-text
+              span.card-title= patient.PName
+              ul.collection.green
+                li.collection-item.green.darken-1= "SSN: "+patient.Hcn
+                li.collection-item.green.darken-1= "Gender: "+patient.Gender
+                li.collection-item.green.darken-1= "Date of Birth: "+patient.BirthDate.toLocaleDateString()
+                li.collection-item.green.darken-1= "Address: "+patient.Address
+                li.collection-item.green.darken-1= "Telephone: "+patient.Telephone
