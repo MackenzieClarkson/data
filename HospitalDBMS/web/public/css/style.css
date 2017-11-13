@@ -1,0 +1,52 @@
+body{
+  background-color: #E0E0E2;
+}
+
+/* patient Color Spectrum */
+.patient {
+  background-color: #0B6E4F !important;
+}
+
+/* .patient.darken-1 {
+  background-color: #0A5B41 !important;
+}
+
+.patient.darken-2 {
+  background-color: #084633 !important;
+}
+
+.patient.darken-3 {
+  background-color: #063C2C !important;
+} */
+
+/* doctor Color Spectrum */
+.doctor {
+  background-color: #28588D !important;
+}
+
+/* staff Color Spectrum */
+.staff{
+  background-color: #5F5D83 !important;
+}
+
+
+/* Primary Color Spectrum */
+.primary{
+  background-color: #19535F !important;
+}
+
+.primary.darken-1{
+  background-color: #15444E !important;
+}
+
+.primary.darken-2{
+  background-color: #10353D !important;
+}
+
+.primary.darken-3{
+  background-color: #0E2E34 !important;
+}
+
+.secondary{
+  background-color: #587B7F !important;
+}

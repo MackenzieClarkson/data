@@ -6,16 +6,16 @@ block content
     .row
       for record in records
         .col.s12.m4
-          .card.blue.darken-2
+          .card.primary.darken-2
             .card-content.white-text
               span.card-title= record.PName
-              ul.collection.blue
-                li.collection-item.blue.darken-1= "Hcn: "+record.PHcn                            
-                li.collection-item.blue.darken-1= "Illnes: "+record.Illness
-                li.collection-item.blue.darken-1= "Start: "+record.Start.toLocaleDateString()
+              ul.collection.primary
+                li.collection-item.primary.darken-1= "Hcn: "+record.PHcn                            
+                li.collection-item.primary.darken-1= "Illnes: "+record.Illness
+                li.collection-item.primary.darken-1= "Start: "+record.Start.toLocaleDateString()
                 if record.End
-                  li.collection-item.blue.darken-1= "End: "+record.End
-                li.collection-item.blue.darken-1= "Medication: "+record.Medication
-                li.collection-item.blue.darken-1= "Physician: "+record.Physician
-                li.collection-item.blue.darken-1= "Symptoms: "+record.Symptoms
-                li.collection-item.blue.darken-1= "Case #: "+record.CaseN
+                  li.collection-item.primary.darken-1= "End: "+record.End
+                li.collection-item.primary.darken-1= "Medication: "+record.Medication
+                li.collection-item.primary.darken-1= "Physician: "+record.Physician
+                li.collection-item.primary.darken-1= "Symptoms: "+record.Symptoms
+                li.collection-item.primary.darken-1= "Case #: "+record.CaseN

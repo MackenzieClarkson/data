@@ -6,12 +6,12 @@ block content
     .row
       for patient in patients
         .col.s12.m4
-          .card.blue-grey.darken-3
+          .card.primary.darken-1
             .card-content.white-text
               span.card-title= patient.PName
-              ul.collection.blue-grey
-                li.collection-item.blue-grey.darken-1= "HCN: "+patient.Hcn
-                li.collection-item.blue-grey.darken-1= "Gender: "+patient.Gender
-                li.collection-item.blue-grey.darken-1= "Date of Birth: "+patient.BirthDate.toLocaleDateString()
-                li.collection-item.blue-grey.darken-1= "Address: "+patient.Address
-                li.collection-item.blue-grey.darken-1= "Telephone: "+patient.Telephone
+              ul.collection.primary
+                li.collection-item.primary= "HCN: "+patient.Hcn
+                li.collection-item.primary= "Gender: "+patient.Gender
+                li.collection-item.primary= "Date of Birth: "+patient.BirthDate.toLocaleDateString()
+                li.collection-item.primary= "Address: "+patient.Address
+                li.collection-item.primary= "Telephone: "+patient.Telephone
