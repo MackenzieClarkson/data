@@ -26,30 +26,7 @@ dbConnection.connect(config).then((connection) => {
 	//Home Route
 	app.get('/', require('./server/routes/home')(log));
 
-	// app.param(':user', function(req, res, next, type) {
-	// 	let userTypes = {
-	// 		patients: 'patients',
-	// 		doctors: 'doctors',
-	// 		staff: 'staff'
-	// 	};
-	// 	if(userTypes[type]){
-	// 		req.user = type;
-	// 	}
-	// 	next();
-	// });
-
-	// Signed in Route
-	// app.get('/:type', function(req, res, next){
-	// 	let userTypes = {
-	// 		doctors: 'doctors',
-	// 		staff: 'staff'
-	// 	};
-	// 	if(userTypes[req.params.type]){
-	// 		res.locals.user = userTypes[req.params.type];
-	// 	}
-	// 	next();
-	// });
-
+	//Determine user type
 	app.get('/:type/*', function(req, res, next){
 		let userTypes = {
 			doctors: 'doctors',
@@ -81,6 +58,9 @@ dbConnection.connect(config).then((connection) => {
 
 	//View2 page Route
 	app.get('/*/patientsbydepartment', require('./server/routes/patientsbydepartment')(connection, log));
+
+	//Internal API Route
+	app.get('/*/patient/:hcn', require('./server/routes/patientreq')(connection, log));
 
 	//Listen on Port
 	app.listen(config.web.port);

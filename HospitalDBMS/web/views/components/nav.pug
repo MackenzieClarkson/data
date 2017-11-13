@@ -1,11 +1,25 @@
 nav
     .nav-wrapper.white-text
         a.brand-logo.center(href="/") Hospital DBMS
-        ul
+        a.button-collapse(href="#" data-activates="mobile-demo")
+            i.material-icons menu
+        ul.hide-on-med-and-down
             li
                 a(href="/") Home
 
-            li#patients
+            li
+                a.dropdown-button(href="#!" data-activates="dropdown1") Patients 
+                    i.material-icons.right arrow_drop_down
+            if user=="doctors" || user=="staff"
+                li
+                    a(href="doctors") Doctors
+                li
+                    a(href="staff") Staff
+        
+        ul.side-nav#mobile-demo
+            li
+                a(href="/") Home
+            li
                 a.dropdown-button(href="#!" data-activates="dropdown1") Patients 
                     i.material-icons.right arrow_drop_down
             if user=="doctors" || user=="staff"
@@ -14,10 +28,15 @@ nav
                 li
                     a(href="staff") Staff
 
+
 if user=="doctors"
     include ./doctornav
 else if user=="staff"
     include ./staffnav
 else      
     include ./patientnav
-//- block content
+
+script.
+    $(document).ready(function() {
+        $('.button-collapse').sideNav();
+    });

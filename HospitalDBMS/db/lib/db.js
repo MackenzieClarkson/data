@@ -130,6 +130,22 @@ const getFindPatients = (connection, log) => {
 	});
 };
 
+const getPatient = (connection, log, hcn) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+											FROM patient
+											WHERE hcn=${hcn}`, (err, response) => {
+			if (err){
+				reject(err);
+			}else {
+				log.info('Got patient');
+				resolve(response);
+			}
+		});
+
+	});
+};
+
 module.exports = {
 	getDepartments,
 	getRooms,
@@ -139,5 +155,6 @@ module.exports = {
 	getStaff,
 	getView1,
 	getView2,
-	getFindPatients
+	getFindPatients,
+	getPatient
 };
