@@ -22,54 +22,69 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 dbConnection.connect(config).then((connection) => {
+
 	//Home Route
-	app.get('/', require('./server/routes/home')(connection, log));
+	app.get('/', require('./server/routes/home')(log));
+
+	// app.param(':user', function(req, res, next, type) {
+	// 	let userTypes = {
+	// 		patients: 'patients',
+	// 		doctors: 'doctors',
+	// 		staff: 'staff'
+	// 	};
+	// 	if(userTypes[type]){
+	// 		req.user = type;
+	// 	}
+	// 	next();
+	// });
+
+	// Signed in Route
+	// app.get('/:type', function(req, res, next){
+	// 	let userTypes = {
+	// 		doctors: 'doctors',
+	// 		staff: 'staff'
+	// 	};
+	// 	if(userTypes[req.params.type]){
+	// 		res.locals.user = userTypes[req.params.type];
+	// 	}
+	// 	next();
+	// });
+
+	app.get('/:type/*', function(req, res, next){
+		let userTypes = {
+			doctors: 'doctors',
+			staff: 'staff'
+		};
+		if(userTypes[req.params.type]){
+			res.locals.user = userTypes[req.params.type];			
+		}
+		next();
+	});
 	
 	//Departments
-	app.get('/departments', require('./server/routes/departments')(connection, log));
+	app.get('/*/departments', require('./server/routes/departments')(connection, log));
 
 	//Patients page Route
-	app.get('/patients', require('./server/routes/patients')(connection, log));
+	app.get('/*/patients', require('./server/routes/patients')(connection, log));
 
 	//Patient Lookup Route
-	app.get('/patientlookup', require('./server/routes/patient_selection')(connection, log));
+	app.get('/*/patientlookup', require('./server/routes/patient_selection')(connection, log));
 
 	//Doctors page Route
-	app.get('/doctors', require('./server/routes/doctors')(connection, log));
+	app.get('/*/doctors', require('./server/routes/doctors')(connection, log));
 
 	//Patient Records Route
-	app.get('/patientrecords', require('./server/routes/records')(connection, log));
+	app.get('/*/patientrecords', require('./server/routes/records')(connection, log));
 
 	//Staff page Route
-	app.get('/staff', require('./server/routes/staff')(connection, log));
+	app.get('/*/staff', require('./server/routes/staff')(connection, log));
 
 	//View2 page Route
-	app.get('/patientsbydepartment', require('./server/routes/patientsbydepartment')(connection, log));
+	app.get('/*/patientsbydepartment', require('./server/routes/patientsbydepartment')(connection, log));
 
 	//Listen on Port
 	app.listen(config.web.port);
 
-	// //Query data base
-	// db.getDepartments(connection, log).then((departments) => {
-	// 	db.getRooms(connection, log).then((rooms) => {
-	// 		db.getPatients(connection, log).then((patients) => {
-	// 			db.getRecords(connection, log).then((records) => {
-	// 				db.getDoctors(connection, log).then((doctors) => {
-	// 					db.getStaff(connection, log).then((staff) => {
-	// 						db.getFindPatients(connection, log).then((find_patients) => {
-	// 							db.getView2(connection, log).then((view2) => {
-	// 								//Create server (nest in query functions later)
-	// 								server.createServer(config, log, departments, rooms, patients, records, doctors, staff, find_patients, view2, () => {
-	// 									log.info('template started successfully on: '+config.web.url);
-	// 								});
-	// 							});
-	// 						});
-	// 					});
-	// 				});
-	// 			});
-	// 		});
-	// 	});
-	// });
 }).catch((err) => {
 	log.info('Could not connect to db: ', err);
 });

@@ -1,8 +1,11 @@
-extends nav
-block content  
-  script.
+ul#dropdown1.dropdown-content
+    li
+        a(href="/patients") All
+    li
+        a(href="/patientlookup") Patient Lookup
+
+script.
     $(document).ready(function() {
         $(".dropdown-button").dropdown();
         $('nav').addClass('purple');
-        $('nav #patients').remove();
     });

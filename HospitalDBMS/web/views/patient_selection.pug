@@ -1,11 +1,11 @@
 extends ./layouts/default
 block content
-  include ./components/patientnav
+  include ./components/nav
   .container
     h2 Patient Lookup
     .row
       .col.s12
-        .card.green.darken-2
+        .card.blue-grey.darken-2
           .card-content.white-text
             span.card-title Select Patient
             .row
@@ -17,29 +17,35 @@ block content
                 label(for="patient_select")
 
       .col.s12
-        .card.green.darken-2
+        .card.blue-grey.darken-2
           .card-content.white-text
             span.card-title Patient info
             ul.collection
-              li.collection-item.green#name
-              li.collection-item.green#room
+              li.blue-grey.collection-item#name
+              li.blue-grey.collection-item#room
+    
     script.
       $(document).ready(function () {
-        $('#patient_select').on('change', function() {
-          //Get the selected patients HCN
-          let selected = $('option:selected').attr('id');
-          let patients = !{JSON.stringify(patients)};
+          $('#patient_select').on('change', function() {
+            //Get the selected patients HCN
+            let selected = $('option:selected').attr('id');
+            let patients = !{JSON.stringify(patients)};
 
 
-          //get patient info from array by patient HCN
-          let patient = $.grep(patients, function(patient){
-            return patient.Hcn == selected;
-          })[0];
+            //get patient info from array by patient HCN
+            let patient = $.grep(patients, function(patient){
+              return patient.Hcn == selected;
+            })[0];
 
-          $('#name').html("Patient Name: "+patient.PName);
-          $('#room').html("Room #"+patient.Rno+": "+patient.RName);
+            if(patient){
+              $('#name').html("Patient Name: "+patient.PName);
+              $('#room').html("Room #"+patient.Rno+": "+patient.RName);
+            }else{
+              $('#name').html("");
+              $('#room').html("");
+            }
+          });
 
+          $('select').material_select();
         });
-
-        $('select').material_select();
-      });
+      

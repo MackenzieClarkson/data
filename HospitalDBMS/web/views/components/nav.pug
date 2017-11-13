@@ -4,8 +4,20 @@ nav.darken-3
         ul
             li
                 a(href="/") Home
+
             li#patients
                 a.dropdown-button(href="#!" data-activates="dropdown1") Patients 
                     i.material-icons.right arrow_drop_down
+            if user=="doctors" || user=="staff"
+                li
+                    a(href="doctors") Doctors
+                li
+                    a(href="staff") Staff
 
-    block content   
+if user=="doctors"
+    include ./doctornav
+else if user=="staff"
+    include ./staffnav
+else      
+    include ./patientnav
+//- block content

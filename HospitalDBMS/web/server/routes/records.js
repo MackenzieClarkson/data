@@ -1,7 +1,12 @@
 'use strict';
+const db = require('../../../db/lib/db');
 
-module.exports = function(log, records){
+module.exports = function(connection, log){
 	return function(req, res){
-		res.render('records.pug', {records: records});
+		db.getRecords(connection, log).then((records) => {
+			res.render('records.pug', {
+				records: records
+			});
+		});
 	};
 };

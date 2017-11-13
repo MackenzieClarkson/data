@@ -1,15 +1,15 @@
-extends nav
-block content
-    ul#dropdown1.dropdown-content
-                li
-                    a(href="patients") All
-                li
-                    a(href="patientsbydepartment") By Department
-                li
-                    a(href="patientrecords") Records
-    
-    script.
-        $(document).ready(function() {
-            $(".dropdown-button").dropdown();
-            $('nav').addClass('blue');
-        });
+ul#dropdown1.dropdown-content
+    li
+        a(href="patients") All
+    li
+        a(href="patientsbydepartment") By Department
+    li
+        a(href="patientlookup") Patient Lookup
+    li
+        a(href="patientrecords") Records
+
+script.
+    $(document).ready(function() {
+        $(".dropdown-button").dropdown();
+        $('nav').addClass('blue');
+    });
