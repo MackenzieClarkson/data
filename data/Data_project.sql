@@ -33,14 +33,14 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Deparment_Senior`
+-- Temporary view structure for view `Department_Senior`
 --
 
-DROP TABLE IF EXISTS `Deparment_Senior`;
-/*!50001 DROP VIEW IF EXISTS `Deparment_Senior`*/;
+DROP TABLE IF EXISTS `Department_Senior`;
+/*!50001 DROP VIEW IF EXISTS `Department_Senior`*/;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-/*!50001 CREATE VIEW `Deparment_Senior` AS SELECT 
+/*!50001 CREATE VIEW `Department_Senior` AS SELECT 
  1 AS `DoctorName`,
  1 AS `asTtimeWorked`*/;
 SET character_set_client = @saved_cs_client;
@@ -349,7 +349,7 @@ DROP TABLE IF EXISTS `pay_Roll`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `pay_Roll` AS SELECT 
- 1 AS `Sum(Salary)`*/;
+ 1 AS `Sum_Salary`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -448,10 +448,10 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
--- Final view structure for view `Deparment_Senior`
+-- Final view structure for view `Department_Senior`
 --
 
-/*!50001 DROP VIEW IF EXISTS `Deparment_Senior`*/;
+/*!50001 DROP VIEW IF EXISTS `Department_Senior`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -460,7 +460,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `Deparment_Senior` AS select `D1`.`DoctorName` AS `DoctorName`,((to_days(now()) - to_days(`D1`.`StartDate`)) / 365) AS `asTtimeWorked` from `doctors` `D1` where (((to_days(now()) - to_days(`D1`.`StartDate`)) / 365) > (select avg(((to_days(now()) - to_days(`D2`.`StartDate`)) / 365)) from `doctors` `D2` where (`D1`.`Dno` = `D2`.`Dno`))) */;
+/*!50001 VIEW `Department_Senior` AS select `D1`.`DoctorName` AS `DoctorName`,((to_days(now()) - to_days(`D1`.`StartDate`)) / 365) AS `asTtimeWorked` from `doctors` `D1` where (((to_days(now()) - to_days(`D1`.`StartDate`)) / 365) > (select avg(((to_days(now()) - to_days(`D2`.`StartDate`)) / 365)) from `doctors` `D2` where (`D1`.`Dno` = `D2`.`Dno`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -586,7 +586,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `pay_Roll` AS select sum(`staff`.`Salary`) AS `Sum(Salary)` from `staff` */;
+/*!50001 VIEW `pay_Roll` AS select sum(`staff`.`Salary`) AS `Sum_Salary` from `staff` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -618,4 +618,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-17 14:18:28
+-- Dump completed on 2017-11-20 14:44:01
