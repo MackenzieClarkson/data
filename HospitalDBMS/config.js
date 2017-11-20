@@ -16,7 +16,7 @@ module.exports = require('rc')('template', {
     host: 'localhost',
     database: 'hospital_project',
     user: 'root',
-    password: 'mysqldb'
+    password: 'root'
   },
   web: {
     port: 3000,

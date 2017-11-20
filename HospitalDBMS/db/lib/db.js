@@ -141,7 +141,7 @@ const getPatientsByDoctor = (connection, log) => {
 				if (err) {
 					reject(err);
 				} else {
-					log.info('Got View 2');
+					log.info('Got View patients_per_doctor');
 					resolve(response);
 				}
 			});
@@ -156,7 +156,7 @@ const getFindPatients = (connection, log) => {
 				if (err) {
 					reject(err);
 				} else {
-					log.info('Got find_patients');
+					log.info('Got View find_patients');
 					resolve(response);
 				}
 			});
@@ -164,7 +164,7 @@ const getFindPatients = (connection, log) => {
 };
 
 //Get patient by hcn
-const findPatient = (connection, log, hcn) => {
+const getFindPatient = (connection, log, hcn) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT *
 											FROM find_patient
@@ -180,6 +180,120 @@ const findPatient = (connection, log, hcn) => {
 	});
 };
 
+/*views required for marks
+	Available_Rooms - complete
+	Department_Senior - complete
+	find_patient  -- complete
+	Good_staff_by_dept - complete
+	Large_Salary_Positions - complete
+	num_patients_department -- complete
+	Patients_In_Rooms - complete
+	patients_per_doctor -- complete
+	pay_Roll - complete
+	roomInfo - complete
+*/
+//Get roomInfo view
+const getRoomInfo = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM roomInfo`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View roomInfo');
+					resolve(response);
+				}
+			});
+	});
+};
+
+//Get pay_Roll view
+const getPayRoll = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM pay_Roll`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View pay_Roll');
+					resolve(response);
+				}
+			});
+	});
+};
+//Get Patients_In_Rooms view
+const getPatientsInRooms = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM Patients_In_Rooms`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View Patients_In_Rooms');
+					resolve(response);
+				}
+			});
+	});
+};
+//Get Large_Salary_Positions view
+const getLargeSalaryPositions = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM Large_Salary_Positions`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View Large_Salary_Positions');
+					resolve(response);
+				}
+			});
+	});
+};
+
+//Get Good_staff_by_dept view
+const getGoodStaffByDept = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM Good_staff_by_dept`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View Good_staff_by_dept');
+					resolve(response);
+				}
+			});
+	});
+};
+//Get Available_Rooms view
+const getAvailableRooms = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM Available_Rooms`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View Available_Rooms');
+					resolve(response);
+				}
+			});
+	});
+};
+
+//Get Department_Senior view
+const getDepartmentSenior = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM Department_Senior`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View Department_Senior');
+					resolve(response);
+				}
+			});
+	});
+};
+
 module.exports = {
 	getAssigned,
 	getCaresForPatient,
@@ -192,5 +306,12 @@ module.exports = {
 	getPatientsByDepartment,
 	getPatientsByDoctor,
 	getFindPatients,
-	findPatient
+	getFindPatient,
+	getAvailableRooms,
+	getDepartmentSenior,
+	getGoodStaffByDept,
+	getLargeSalaryPositions,
+	getPatientsInRooms,
+	getPayRoll,
+	getRoomInfo
 };
