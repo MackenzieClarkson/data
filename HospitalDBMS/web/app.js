@@ -41,6 +41,9 @@ dbConnection.connect(config).then((connection) => {
 	//Departments
 	app.get('/*/departments', require('./server/routes/departments')(connection, log));
 
+	//Room Info page Route
+	app.get('/*/roominfo', require('./server/routes/roomInfo')(connection, log));
+
 	//Patients page Route
 	app.get('/*/patients', require('./server/routes/patients')(connection, log));
 
