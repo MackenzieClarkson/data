@@ -6,8 +6,16 @@ ul#dropdown1.dropdown-content
             li
                 a(href="patientlookup") Patient Lookup
 
+//- Duplicate ul to prevent desktop and mobile navbar dropdowns from conflicting
+ul#dropdown2.dropdown-content
+            li
+                a(href="patients") All
+            li
+                a(href="patientsbydepartment") By Department
+            li
+                a(href="patientlookup") Patient Lookup
+
 script.
     $(document).ready(function() {
-        $(".dropdown-button").dropdown();
         $('nav').addClass('patient');
     });

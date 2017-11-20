@@ -22,6 +22,7 @@ block content
             span.card-title Patient info
             ul.collection
               li.primary.collection-item#name
+              li.primary.collection-item#department
               li.primary.collection-item#room
     
     script.
@@ -39,6 +40,7 @@ block content
 
             if(patient){
               $('#name').html("Patient Name: "+patient.PName);
+              $('#department').html("Department #"+patient.Dno+": "+patient.DName);
               $('#room').html("Room #"+patient.Rno+": "+patient.RName);
             }else{
               $('#name').html("");

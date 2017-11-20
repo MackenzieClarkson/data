@@ -20,7 +20,7 @@ nav
             li
                 a(href="/") Home
             li
-                a.dropdown-button(href="#!" data-activates="dropdown1") Patients 
+                a.dropdown-button(href="#!" data-activates="dropdown2") Patients 
                     i.material-icons.right arrow_drop_down
             if user=="doctors" || user=="staff"
                 li
@@ -39,4 +39,5 @@ else
 script.
     $(document).ready(function() {
         $('.button-collapse').sideNav();
+        $('.dropdown-button').dropdown();
     });

@@ -1,0 +1,17 @@
+extends ./layouts/default
+block content   
+    include ./components/nav
+    .container
+        h2 Patients By Doctor   
+        .row
+            for doctor in doctors
+              .col.s12.m6                
+                  .card.primary
+                      .card-content.white-text
+                          span.card-title= 'Doctor Name:'+ doctor.DoctorName
+                          for patient in patients
+                            if patient.PName != null
+                              p.primary.darken-1.card-content No Patients
+                            else
+                              p.primary.darken-1.card-content= "Patient Name: "+patient.PName
+                  

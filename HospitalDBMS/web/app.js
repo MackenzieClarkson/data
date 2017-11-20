@@ -56,9 +56,12 @@ dbConnection.connect(config).then((connection) => {
 	//Staff page Route
 	app.get('/*/staff', require('./server/routes/staff')(connection, log));
 
-	//View2 page Route
+	//Patients by Department page Route
 	app.get('/*/patientsbydepartment', require('./server/routes/patientsbydepartment')(connection, log));
 
+	//Patients by Doctor Route
+	app.get('/*/patientsbydoctor', require('./server/routes/patientsbydoctor')(connection, log));
+	
 	//Internal API Route
 	app.get('/*/patient/:hcn', require('./server/routes/patientreq')(connection, log));
 

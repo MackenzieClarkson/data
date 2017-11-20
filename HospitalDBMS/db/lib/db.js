@@ -102,10 +102,24 @@ const getView1 = (connection, log) => {
 	});
 };
 
-const getView2 = (connection, log) => {
+const getPatientsByDepartment = (connection, log) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT *
                           FROM num_patients_department`, (err, response) => {
+				if (err) {
+					reject(err);
+				} else {
+					log.info('Got View 2');
+					resolve(response);
+				}
+			});
+	});
+};
+
+const getPatientsByDoctor = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT *
+                          FROM patients_per_doctor`, (err, response) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -154,7 +168,8 @@ module.exports = {
 	getDoctors,
 	getStaff,
 	getView1,
-	getView2,
+	getPatientsByDepartment,
+	getPatientsByDoctor,
 	getFindPatients,
 	getPatient
 };

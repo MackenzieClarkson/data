@@ -4,12 +4,25 @@ ul#dropdown1.dropdown-content
     li
         a(href="patientsbydepartment") By Department
     li
+        a(href="patientsbydoctor") By Doctor
+    li
+        a(href="patientlookup") Patient Lookup
+    li
+        a(href="patientrecords") Records
+
+ul#dropdown2.dropdown-content
+    li
+        a(href="patients") All
+    li
+        a(href="patientsbydepartment") By Department
+    li
+        a(href="patientsbydoctor") By Doctor
+    li
         a(href="patientlookup") Patient Lookup
     li
         a(href="patientrecords") Records
 
 script.
     $(document).ready(function() {
-        $(".dropdown-button").dropdown();
         $('nav').addClass('doctor');
     });
