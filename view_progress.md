@@ -20,7 +20,7 @@
 - [ ] Department_Senior
 - [ ] roomInfo
 - [ ] Good_staff_by_dept
-- [ ] find_Patient
+- [x] find_Patient
 - [ ] Available_Rooms
 - [x] num_patients_department
 - [ ] pay_Roll

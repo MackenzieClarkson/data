@@ -4,18 +4,31 @@ block content
   .container
     h2 Patient Records
     .row
-      for record in records
-        .col.s12.m4
-          .card.primary.darken-2
+      for patient in patients
+        .col.s12
+          .card.secondary
             .card-content.white-text
-              span.card-title= record.PName
-              ul.collection.primary
-                li.collection-item.primary.darken-1= "Hcn: "+record.PHcn                            
-                li.collection-item.primary.darken-1= "Illnes: "+record.Illness
-                li.collection-item.primary.darken-1= "Start: "+record.Start.toLocaleDateString()
-                if record.End
-                  li.collection-item.primary.darken-1= "End: "+record.End
-                li.collection-item.primary.darken-1= "Medication: "+record.Medication
-                li.collection-item.primary.darken-1= "Physician: "+record.Physician
-                li.collection-item.primary.darken-1= "Symptoms: "+record.Symptoms
-                li.collection-item.primary.darken-1= "Case #: "+record.CaseN
+              span.card-title="Patient Name: "+patient.PName
+              p= "HCN: "+patient.Hcn
+              .row.records
+                for record in records
+                  if patient.Hcn==record.PHcn
+                      .col.s12.m4
+                        .card.primary.darken-1
+                          .card-content
+                            span.card-title= "Case #: "+record.CaseN
+                            ul.collection.primary
+                              li.collection-item.primary= "Illnes: "+record.Illness
+                              li.collection-item.primary= "Start: "+record.Start_Date.toLocaleDateString()
+                              if record.End_Date != '0000-00-00 00:00:00'
+                                li.collection-item.primary= "End: "+record.End_Date.toLocaleDateString()
+                              li.collection-item.primary= "Medication: "+record.Medication
+                              li.collection-item.primary= "Physician: "+record.Physician
+                              li.collection-item.primary= "Symptoms: "+record.Symptoms
+  script.
+    $(document).ready(function() {
+      $('.records').each(function( index ) {
+        if (!$(this).text())
+          $(this).parent().parent().parent().remove();
+      });
+    });

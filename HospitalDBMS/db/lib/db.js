@@ -4,6 +4,34 @@
 const Promise = require('bluebird');
 // const mysql = require('mysql');
 
+//Get Assigned
+const getAssigned = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query('SELECT * FROM assigned', (err, response) => {
+			if (err){
+				reject(err);
+			}else{
+				log.info('Got assigned');
+				resolve(response);
+			}
+		});
+	});
+};
+
+//Get caresfor
+const getCaresForPatient = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query('SELECT * FROM caresForPatient', (err, response) => {
+			if (err){
+				reject(err);
+			}else{
+				log.info('Got caresfor');
+				resolve(response);
+			}
+		});
+	});
+};
+
 //Get Departments
 const getDepartments = (connection, log) => {
 	return new Promise((resolve, reject) => {
@@ -18,14 +46,14 @@ const getDepartments = (connection, log) => {
 	});
 };
 
-//Get Rooms
-const getRooms = (connection, log) => {
+//Get Doctors
+const getDoctors = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM rooms', (err, response) => {
+		connection.query('SELECT * FROM doctors', (err, response) => {
 			if (err) {
 				reject(err);
 			} else {
-				log.info('Got Rooms');
+				log.info('Got Doctors');
 				resolve(response);
 			}
 		});
@@ -46,6 +74,7 @@ const getPatients = (connection, log) => {
 	});
 };
 
+//Get patient records
 const getRecords = (connection, log) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT P.PName, R.*
@@ -61,19 +90,21 @@ const getRecords = (connection, log) => {
 	});
 };
 
-const getDoctors = (connection, log) => {
+//Get Rooms
+const getRooms = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM doctors', (err, response) => {
+		connection.query('SELECT * FROM rooms', (err, response) => {
 			if (err) {
 				reject(err);
 			} else {
-				log.info('Got Doctors');
+				log.info('Got Rooms');
 				resolve(response);
 			}
 		});
 	});
 };
 
+//Get staff
 const getStaff = (connection, log) => {
 	return new Promise((resolve, reject) => {
 		connection.query('SELECT * FROM staff ORDER BY Dno', (err, response) => {
@@ -87,21 +118,7 @@ const getStaff = (connection, log) => {
 	});
 };
 
-const getView1 = (connection, log) => {
-	return new Promise((resolve, reject) => {
-		connection.query(`SELECT *
-                          FROM department AS D, rooms AS R
-                          WHERE D.Dno=R.Dno`, (err, response) => {
-				if (err) {
-					reject(err);
-				} else {
-					log.info('Got View 1');
-					resolve(response);
-				}
-			});
-	});
-};
-
+//Get patientBy Department count view
 const getPatientsByDepartment = (connection, log) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT *
@@ -116,6 +133,7 @@ const getPatientsByDepartment = (connection, log) => {
 	});
 };
 
+//Get patientByDoctor view
 const getPatientsByDoctor = (connection, log) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT *
@@ -130,6 +148,7 @@ const getPatientsByDoctor = (connection, log) => {
 	});
 };
 
+//Get find_patient view
 const getFindPatients = (connection, log) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT *
@@ -144,10 +163,11 @@ const getFindPatients = (connection, log) => {
 	});
 };
 
-const getPatient = (connection, log, hcn) => {
+//Get patient by hcn
+const findPatient = (connection, log, hcn) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT *
-											FROM patient
+											FROM find_patient
 											WHERE hcn=${hcn}`, (err, response) => {
 			if (err){
 				reject(err);
@@ -161,15 +181,16 @@ const getPatient = (connection, log, hcn) => {
 };
 
 module.exports = {
+	getAssigned,
+	getCaresForPatient,
 	getDepartments,
-	getRooms,
+	getDoctors,
 	getPatients,
 	getRecords,
-	getDoctors,
+	getRooms,
 	getStaff,
-	getView1,
 	getPatientsByDepartment,
 	getPatientsByDoctor,
 	getFindPatients,
-	getPatient
+	findPatient
 };
