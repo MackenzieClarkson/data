@@ -1,0 +1,13 @@
+extends ./layouts/default
+block content
+  include ./components/nav
+  div.container
+    h2 Good Staff By Department
+    .row
+      for Staff in GoodStaffByDept
+        .col.s12.m6.l4
+          .card.primary.darken-1
+            .card-content.white-text
+              span.card-title= Staff.DoctorName
+              ul.collection.primary
+                li.collection-item.primary= "Telephone: " + Staff.Telephone

@@ -1,0 +1,14 @@
+extends ./layouts/default
+block content
+  include ./components/nav
+  div.container
+    h2 Available Rooms
+    .row
+      for A in AvailableRooms
+        .col.s12.m6.l4
+          .card.primary.darken-1
+            .card-content.white-text
+              span.card-title= A.Rno
+              ul.collection.primary
+                li.collection-item.primary= "Room Name: "+ A.RName
+                li.collection-item.primary= "Dep No: "+ A.Dno

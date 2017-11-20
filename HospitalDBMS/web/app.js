@@ -62,9 +62,32 @@ dbConnection.connect(config).then((connection) => {
 	//Patients by Doctor Route
 	app.get('/*/patientsbydoctor', require('./server/routes/patientsbydoctor')(connection, log));
 	
+	//Available Rooms
+	app.get('/*/AvailableRooms',require('./server/routes/AvailableRooms')(connection, log));
+
+	//Department Senior
+	app.get('/*/DepartmentSenior',require('./server/routes/DepartmentSenior')(connection, log));
+
+	//Good Staff By Dept
+	app.get('/*/GoodStaffByDept',require('./server/routes/GoodStaffByDept')(connection, log));
+
+	//Large Salary Positions
+	app.get('/*/LargeSalaryPositions',require('./server/routes/LargestSalaryPositions')(connection, log));
+
+	//Patients In Rooms
+	app.get('/*/PatientsInRooms',require('./server/routes/PatientsInRooms')(connection, log));
+
+	//PayRoll
+	app.get('/*/PayRoll',require('./server/routes/PayRoll')(connection, log));
+
+	//Room Info
+	app.get('/*/RoomInfo',require('./server/routes/RoomInfo')(connection, log));
+
+
 	//Internal API Route
 	app.get('/*/patient/:hcn', require('./server/routes/patientreq')(connection, log));
 
+	
 	//Listen on Port
 	app.listen(config.web.port);
 

@@ -1,0 +1,16 @@
+extends ./layouts/default
+block content
+  div.container
+    h2 Room Info
+    .row
+      for room in RoomInfo
+        .col.s12.m6.l4
+          .card.primary.darken-1
+            .card-content.white-text
+              span.card-title= room.Dno
+              ul.collection.primary
+                li.collection-item.primary= "Room number: "+room.Rno
+                li.collection-item.primary= "Room Name: "+room.RName
+                li.collection-item.primary= "Health Card Num: "+ room.Hcn
+                li.collection-item.primary= "Patient Name: "+room.PName
+                
