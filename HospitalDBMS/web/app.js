@@ -85,11 +85,7 @@ dbConnection.connect(config).then((connection) => {
 	app.get('/*/PayRoll',require('./server/routes/PayRoll')(connection, log));
 
 	//Room Info
-<<<<<<< HEAD
 	app.get('/*/RoomInfo2',require('./server/routes/RoomInfo2')(connection, log));
-=======
-	app.get('/*/RoomInfo',require('./server/routes/RoomInfo')(connection, log));
->>>>>>> 505b92702d708ff9acb135ae1d42017bfd18ca21
 
 
 	//Internal API Route
