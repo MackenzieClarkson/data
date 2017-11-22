@@ -21,7 +21,7 @@ const getAssigned = (connection, log) => {
 //Get caresfor
 const getCaresForPatient = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM caresForPatient', (err, response) => {
+		connection.query('SELECT * FROM cares_for_patient', (err, response) => {
 			if (err){
 				reject(err);
 			}else{

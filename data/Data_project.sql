@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `hospital_project` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `hospital_project`;
--- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
 -- Host: localhost    Database: hospital_project
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.17.04.1
+-- Server version	5.7.20-0ubuntu0.17.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,7 +16,7 @@ USE `hospital_project`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Temporary view structure for view `Available_Rooms`
+-- Temporary table structure for view `Available_Rooms`
 --
 
 DROP TABLE IF EXISTS `Available_Rooms`;
@@ -33,7 +31,7 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Department_Senior`
+-- Temporary table structure for view `Department_Senior`
 --
 
 DROP TABLE IF EXISTS `Department_Senior`;
@@ -46,7 +44,7 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Good_staff_by_dept`
+-- Temporary table structure for view `Good_staff_by_dept`
 --
 
 DROP TABLE IF EXISTS `Good_staff_by_dept`;
@@ -59,7 +57,7 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Large_Salary_Positions`
+-- Temporary table structure for view `Large_Salary_Positions`
 --
 
 DROP TABLE IF EXISTS `Large_Salary_Positions`;
@@ -71,7 +69,7 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `Patients_In_Rooms`
+-- Temporary table structure for view `Patients_In_Rooms`
 --
 
 DROP TABLE IF EXISTS `Patients_In_Rooms`;
@@ -121,6 +119,27 @@ LOCK TABLES `assigned` WRITE;
 INSERT INTO `assigned` VALUES (11,1211122,'2015-01-20 10:10:10'),(12,1211122,'2014-01-20 10:10:10'),(13,1211122,'2013-02-20 11:10:10'),(14,1211122,'2015-11-20 12:10:10'),(21,1211122,'2015-03-25 13:10:10'),(22,1211122,'2015-09-20 14:10:10'),(23,2111122,'2016-02-21 15:21:23'),(24,1215122,'2017-03-22 18:22:59'),(31,1211332,'2011-04-02 22:21:10'),(32,1211332,'2011-07-02 22:21:10'),(33,5211122,'2005-07-08 05:05:05'),(34,5217122,'2017-03-08 09:08:02'),(41,5216666,'2017-01-01 06:06:01'),(42,9821381,'2000-02-03 00:00:59');
 /*!40000 ALTER TABLE `assigned` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `cares_for_patient`
+--
+
+DROP TABLE IF EXISTS `cares_for_patient`;
+/*!50001 DROP VIEW IF EXISTS `cares_for_patient`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `cares_for_patient` AS SELECT 
+ 1 AS `DSsn`,
+ 1 AS `PHcn`,
+ 1 AS `Start_Date`,
+ 1 AS `End_Date`,
+ 1 AS `Hcn`,
+ 1 AS `PName`,
+ 1 AS `Address`,
+ 1 AS `Telephone`,
+ 1 AS `Gender`,
+ 1 AS `BirthDate`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `caresfor`
@@ -211,7 +230,7 @@ INSERT INTO `doctors` VALUES (4321,' Bob Barker',' 422 pront St',' 123-1234',' M
 UNLOCK TABLES;
 
 --
--- Temporary view structure for view `find_patient`
+-- Temporary table structure for view `find_patient`
 --
 
 DROP TABLE IF EXISTS `find_patient`;
@@ -254,7 +273,7 @@ INSERT INTO `hospital` VALUES (1,' Hospital of Ontario Institute of Technology',
 UNLOCK TABLES;
 
 --
--- Temporary view structure for view `num_patients_department`
+-- Temporary table structure for view `num_patients_department`
 --
 
 DROP TABLE IF EXISTS `num_patients_department`;
@@ -328,20 +347,7 @@ INSERT INTO `patientrecords` VALUES (1211332,' Stomach Flu','2011-07-02 22:21:10
 UNLOCK TABLES;
 
 --
--- Temporary view structure for view `patients_per_doctor`
---
-
-DROP TABLE IF EXISTS `patients_per_doctor`;
-/*!50001 DROP VIEW IF EXISTS `patients_per_doctor`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `patients_per_doctor` AS SELECT 
- 1 AS `DoctorName`,
- 1 AS `PName`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `pay_Roll`
+-- Temporary table structure for view `pay_Roll`
 --
 
 DROP TABLE IF EXISTS `pay_Roll`;
@@ -353,7 +359,7 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Temporary view structure for view `roomInfo`
+-- Temporary table structure for view `roomInfo`
 --
 
 DROP TABLE IF EXISTS `roomInfo`;
@@ -520,6 +526,24 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `cares_for_patient`
+--
+
+/*!50001 DROP VIEW IF EXISTS `cares_for_patient`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `cares_for_patient` AS select `C`.`DSsn` AS `DSsn`,`C`.`PHcn` AS `PHcn`,`C`.`Start_Date` AS `Start_Date`,`C`.`End_Date` AS `End_Date`,`P`.`Hcn` AS `Hcn`,`P`.`PName` AS `PName`,`P`.`Address` AS `Address`,`P`.`Telephone` AS `Telephone`,`P`.`Gender` AS `Gender`,`P`.`BirthDate` AS `BirthDate` from (`caresfor` `C` join `patient` `P`) where (`C`.`PHcn` = `P`.`Hcn`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `find_patient`
 --
 
@@ -551,24 +575,6 @@ UNLOCK TABLES;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `num_patients_department` AS select `D`.`Dno` AS `Dno`,`D`.`DName` AS `DName`,count(0) AS `numPatients` from (((`department` `D` join `rooms` `R`) join `assigned` `A`) join `patient` `P`) where ((`D`.`Dno` = `R`.`Dno`) and (`R`.`Rno` = `A`.`Rno`) and (`A`.`PHcn` = `P`.`Hcn`)) group by `D`.`Dno`,`D`.`DName` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `patients_per_doctor`
---
-
-/*!50001 DROP VIEW IF EXISTS `patients_per_doctor`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8 */;
-/*!50001 SET character_set_results     = utf8 */;
-/*!50001 SET collation_connection      = utf8_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `patients_per_doctor` AS select `D`.`DoctorName` AS `DoctorName`,`P`.`PName` AS `PName` from ((`doctors` `D` left join `caresfor` `C` on((`D`.`Ssn` = `C`.`DSsn`))) left join `patient` `P` on((`C`.`PHcn` = `P`.`Hcn`))) order by `D`.`DoctorName` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -618,4 +624,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-20 14:44:01
+-- Dump completed on 2017-11-22  8:40:22
