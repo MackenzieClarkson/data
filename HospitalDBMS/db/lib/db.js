@@ -2,7 +2,7 @@
 
 // const request = require('request');
 const Promise = require('bluebird');
-// const mysql = require('mysql');
+const mysql = require('mysql');
 
 //Get Assigned
 const getAssigned = (connection, log) => {
@@ -77,7 +77,7 @@ const getPatients = (connection, log) => {
 //Get patient records
 const getRecords = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query(`SELECT P.PName, R.*
+		connection.query(`SELECT P.*, R.*
                           FROM patient AS P, patientrecords AS R
                           WHERE P.Hcn=R.PHcn`, (err, response) => {
 				if (err) {
@@ -137,7 +137,7 @@ const getPatientsByDepartment = (connection, log) => {
 const getPatientsByDoctor = (connection, log) => {
 	return new Promise((resolve, reject) => {
 		connection.query(`SELECT *
-                          FROM patients_per_doctor`, (err, response) => {
+                          FROM patient_per_doctor`, (err, response) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -166,9 +166,12 @@ const getFindPatients = (connection, log) => {
 //Get patient by hcn
 const getFindPatient = (connection, log, hcn) => {
 	return new Promise((resolve, reject) => {
-		connection.query(`SELECT *
-											FROM find_patient
-											WHERE hcn=${hcn}`, (err, response) => {
+		let sql = `SELECT *
+							 FROM find_patient
+							 WHERE Hcn=?`;
+		let inserts = [hcn];
+		sql = mysql.format(sql, inserts);
+		connection.query(sql, (err, response) => {
 			if (err){
 				reject(err);
 			}else {
@@ -176,7 +179,6 @@ const getFindPatient = (connection, log, hcn) => {
 				resolve(response);
 			}
 		});
-
 	});
 };
 
@@ -296,7 +298,6 @@ const getDepartmentSenior = (connection, log) => {
 
 module.exports = {
 	getAssigned,
-	getCaresForPatient,
 	getDepartments,
 	getDoctors,
 	getPatients,

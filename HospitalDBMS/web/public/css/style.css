@@ -56,3 +56,11 @@ i{
   align-self: center;
   border-radius: 0.2em;
 }
+
+@media screen and (min-device-width: 800px){
+  #grid-wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+  }
+}

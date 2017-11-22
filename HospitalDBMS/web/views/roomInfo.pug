@@ -3,12 +3,12 @@ block content
   include ./components/nav
   .container
     h2 Rooms by Department
-    .row
+    #grid-wrapper
       each department, index in roomInfo
-        if index != null
-          .col.s12.m6
-            .card.primary.darken-1
-              .card-content.white-text
+        .col.s12.m6
+          .card.primary.darken-1
+            .card-content.white-text
+              if index != 'null'
                 span.card-title= "Department #"+index
                 ul.collection.primary
                   for room in department
@@ -19,9 +19,18 @@ block content
                       li.collection-item.primary= "Patient Name:"+room.PName
                     else
                       li.collection-item.green
-                        i.material-icons check
+                        i.tiny.material-icons check
                         span Availible 
-
+              else
+                span.card-title= "Unassigned"
+                ul.collection.primary
+                  for patient in department
+                    li.collection-item.primary
+                      p
+                        span="HCN #:"+patient.Hcn
+                        br
+                        span="Patient Name: "+patient.PName
+                    
       //- for department in departments
         .col.s12.m6
           .card.primary.darken-1
