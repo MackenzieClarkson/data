@@ -9,7 +9,7 @@ block content
                 .card.secondary
                     .card-content.white-text
                         span.card-title= 'Doctor Name:'+ doctor.DoctorName
-                        .row
+                        .row.patients
                             for patient in patients
                                 if patient.DSsn==doctor.Ssn
                                     .col.s12.m4
@@ -26,7 +26,7 @@ block content
                                                     li.collection-item.primary= "Date of Birth: "+patient.BirthDate.toLocaleDateString()
     script.
         $(document).ready(function() {
-            $('.records').each(function( index ) {
+            $('.patients').each(function( index ) {
                 if (!$(this).text())
                 $(this).parent().parent().parent().remove();
             });

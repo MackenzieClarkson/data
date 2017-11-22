@@ -24,4 +24,4 @@
 - [ ] Available_Rooms
 - [x] num_patients_department
 - [ ] pay_Roll
-- [ ] patients_by_doctor
+- [x] patients_by_doctor

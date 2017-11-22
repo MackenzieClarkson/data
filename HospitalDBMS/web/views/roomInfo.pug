@@ -1,0 +1,22 @@
+extends ./layouts/default
+block content
+  include ./components/nav
+  .container
+    h2 Rooms by Department
+    .row
+      for department in departments
+        .col.s12
+          .card.primary.darken-1
+            .card-content.white-text
+              span.card-title= "Department #"+department.Dno+": "+department.DName
+              ul.collection.primary.rooms
+                for room in rooms
+                  if room.Dno == department.Dno
+                    li.collection-item.primary
+                      if room.RStatus==" Availible"
+                        .chip.green
+                          span= room.RStatus
+                      else
+                        .chip.red
+                          span= room.RStatus
+                      span= "Room #"+room.Rno+": "+room.RName

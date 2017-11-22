@@ -7,6 +7,8 @@ nav
             li
                 a(href="/") Home
             li
+                a(href="roomInfo") Rooms
+            li
                 a.dropdown-button(href="#!" data-activates="dropdown1") Patients 
                     i.material-icons.right arrow_drop_down
             if user=="doctors" || user=="staff"
@@ -14,10 +16,14 @@ nav
                     a(href="doctors") Doctors
                 li
                     a(href="staff") Staff
-        
+            li
+                a.dropdown-button(href="#!" data-activates="misc-dropdown") Misc
+                    i.material-icons.right arrow_drop_down
         ul.side-nav#mobile-demo
             li
                 a(href="/") Home
+            li
+                a(href="roomInfo") Rooms
             li
                 a.dropdown-button(href="#!" data-activates="dropdown2") Patients 
                     i.material-icons.right arrow_drop_down
@@ -26,7 +32,9 @@ nav
                     a(href="doctors") Doctors
                 li
                     a(href="staff") Staff
-
+            li
+                a.dropdown-button(href="#!" data-activates="misc-dropdown2") Misc
+                    i.material-icons.right arrow_drop_down
 
 if user=="doctors"
     include ./doctornav
@@ -35,6 +43,39 @@ else if user=="staff"
 else      
     include ./patientnav
 
+//- Desktop
+ul#misc-dropdown.dropdown-content
+    li
+        a(href="AvailableRooms") Availible Rooms
+    li
+        a(href="DepartmentSenior") Department Seniors
+    li
+        a(href="GoodStaffByDept") Department Good Staff
+    li
+        a(href="LargeSalaryPositions") Large Salary Positions
+    li
+        a(href="PatientsInRooms") Patients in Rooms
+    li
+        a(href="PayRoll") Pay Roll
+    li
+        a(href="RoomInfo2") Room Info
+
+//- Mobile
+ul#misc-dropdown2.dropdown-content
+    li
+        a(href="AvailableRooms") Availible Rooms
+    li
+        a(href="DepartmentSenior") Department Seniors
+    li
+        a(href="GoodStaffByDept") Department Good Staff
+    li
+        a(href="LargeSalaryPositions") Large Salary Positions
+    li
+        a(href="PatientsInRooms") Patients in Rooms
+    li
+        a(href="PayRoll") Pay Roll
+    li
+        a(href="RoomInfo2") Room Info
 script.
     $(document).ready(function() {
         $('.button-collapse').sideNav();

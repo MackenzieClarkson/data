@@ -50,3 +50,9 @@ body{
 .secondary{
   background-color: #587B7F !important;
 }
+
+i{
+  display:flex;
+  align-self: center;
+  border-radius: 0.2em;
+}

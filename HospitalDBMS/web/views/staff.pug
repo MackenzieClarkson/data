@@ -10,7 +10,7 @@ block content
               .card.primary.secondary.white-text
                 .card-content
                   span.card-title= "Department #"+department.Dno+": "+department.DName
-                  .row
+                  .row.emps
                     for emp in staff
                       if department.Dno==emp.Dno
                         .col.s12.m4
@@ -23,3 +23,10 @@ block content
                                       li.collection-item.primary= "Date of Birth: "+emp.BirthDate.toLocaleDateString()
                                       li.collection-item.primary= "Address: "+emp.Address
                                       li.collection-item.primary= "Telephone: "+emp.Telephone
+  script.
+    $(document).ready(function() {
+        $('.emps').each(function( index ) {
+            if (!$(this).text())
+            $(this).parent().parent().parent().remove();
+        });
+    });

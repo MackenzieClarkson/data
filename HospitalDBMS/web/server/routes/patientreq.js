@@ -3,7 +3,7 @@ const db = require('../../../db/lib/db');
 
 module.exports = function(connection, log){
 	return function(req, res){
-		db.findPatient(connection, log, req.params.hcn).then((patient) => {
+		db.getFindPatient(connection, log, req.params.hcn).then((patient) => {
 			res.json(patient);
 		});
 	};

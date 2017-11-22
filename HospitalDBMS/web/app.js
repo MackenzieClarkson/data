@@ -65,6 +65,7 @@ dbConnection.connect(config).then((connection) => {
 	//Patients by Doctor Route
 	app.get('/*/patientsbydoctor', require('./server/routes/patientsbydoctor')(connection, log));
 	
+	// MISC VIEWS
 	//Available Rooms
 	app.get('/*/AvailableRooms',require('./server/routes/AvailableRooms')(connection, log));
 
@@ -84,7 +85,7 @@ dbConnection.connect(config).then((connection) => {
 	app.get('/*/PayRoll',require('./server/routes/PayRoll')(connection, log));
 
 	//Room Info
-	app.get('/*/RoomInfo',require('./server/routes/RoomInfo')(connection, log));
+	app.get('/*/RoomInfo2',require('./server/routes/RoomInfo2')(connection, log));
 
 
 	//Internal API Route
