@@ -4,8 +4,26 @@ block content
   .container
     h2 Rooms by Department
     .row
-      for department in departments
-        .col.s12
+      each department, index in roomInfo
+        if index != null
+          .col.s12.m6
+            .card.primary.darken-1
+              .card-content.white-text
+                span.card-title= "Department #"+index
+                ul.collection.primary
+                  for room in department
+                    li.collection-item.primary= "Room #:"+room.Rno
+                    li.collection-item.primary= "Room Name:"+room.RName
+                    if room.Hcn != "null"
+                      li.collection-item.primary= "HCN:"+room.Hcn
+                      li.collection-item.primary= "Patient Name:"+room.PName
+                    else
+                      li.collection-item.green
+                        i.material-icons check
+                        span Availible 
+
+      //- for department in departments
+        .col.s12.m6
           .card.primary.darken-1
             .card-content.white-text
               span.card-title= "Department #"+department.Dno+": "+department.DName
@@ -13,7 +31,7 @@ block content
                 for room in rooms
                   if room.Dno == department.Dno
                     li.collection-item.primary
-                      if room.RStatus==" Availible"
+                      if room.RStatus=="Availible"
                         .chip.green
                           span= room.RStatus
                       else

@@ -67,25 +67,25 @@ dbConnection.connect(config).then((connection) => {
 	
 	// MISC VIEWS
 	//Available Rooms
-	app.get('/*/AvailableRooms',require('./server/routes/AvailableRooms')(connection, log));
+	app.get('/*/AvailableRooms',require('./server/routes/misc/AvailableRooms')(connection, log));
 
 	//Department Senior
-	app.get('/*/DepartmentSenior',require('./server/routes/DepartmentSenior')(connection, log));
+	app.get('/*/DepartmentSenior',require('./server/routes/misc/DepartmentSenior')(connection, log));
 
 	//Good Staff By Dept
-	app.get('/*/GoodStaffByDept',require('./server/routes/GoodStaffByDept')(connection, log));
+	app.get('/*/GoodStaffByDept',require('./server/routes/misc/GoodStaffByDept')(connection, log));
 
 	//Large Salary Positions
-	app.get('/*/LargeSalaryPositions',require('./server/routes/LargestSalaryPositions')(connection, log));
+	app.get('/*/LargeSalaryPositions',require('./server/routes/misc/LargestSalaryPositions')(connection, log));
 
 	//Patients In Rooms
-	app.get('/*/PatientsInRooms',require('./server/routes/PatientsInRooms')(connection, log));
+	app.get('/*/PatientsInRooms',require('./server/routes/misc/PatientsInRooms')(connection, log));
 
 	//PayRoll
-	app.get('/*/PayRoll',require('./server/routes/PayRoll')(connection, log));
+	app.get('/*/PayRoll',require('./server/routes/misc/PayRoll')(connection, log));
 
 	//Room Info
-	app.get('/*/RoomInfo2',require('./server/routes/RoomInfo2')(connection, log));
+	app.get('/*/RoomInfo2',require('./server/routes/misc/RoomInfo2')(connection, log));
 
 
 	//Internal API Route

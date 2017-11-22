@@ -1,10 +1,10 @@
 'use strict';
-const db = require('../../../db/lib/db');
+const db = require('../../../../db/lib/db');
 
 module.exports = function(connection, log){
 	return function(req, res){
 		db.getAvailableRooms(connection, log).then((AvailableRooms) => {
-			res.render('AvailableRoomsView.pug', {
+			res.render('misc/AvailableRoomsView.pug', {
 				AvailableRooms: AvailableRooms
 			});
 		});
