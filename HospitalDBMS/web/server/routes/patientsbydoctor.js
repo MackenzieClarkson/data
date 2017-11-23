@@ -10,13 +10,5 @@ module.exports = function (connection, log) {
 				doctors: groupedInfo
 			});
 		});
-		// db.getDoctors(connection, log).then((doctors) => {
-		// 	db.getCaresForPatient(connection, log).then((patients) => {
-		// 		res.render('patientsByDoctor.pug', {
-		// 			doctors: doctors,
-		// 			patients: patients
-		// 		});
-		// 	});
-		// });
 	};
 };

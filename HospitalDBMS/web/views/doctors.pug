@@ -9,24 +9,16 @@ block content
             .col.s12
               .card.secondary.white-text
                 .card-content
-                  span.card-title= "Department #"+department.Dno+": "+department.DName
-                  .row.doctors
-                    for doctor in doctors
-                      if department.Dno==doctor.Dno
-                        .col.s12.m4
-                          .card.primary.darken-1
-                              .card-content.white-text
-                                  span.card-title= doctor.DoctorName
-                                  ul.collection.primary
-                                      li.collection-item.primary= "SSN: "+doctor.Ssn
-                                      li.collection-item.primary= "Gender: "+doctor.Gender
-                                      li.collection-item.primary= "Date of Birth: "+doctor.BirthDate.toLocaleDateString()
-                                      li.collection-item.primary= "Address: "+doctor.Address
-                                      li.collection-item.primary= "Telephone: "+doctor.Telephone
-  script.
-      $(document).ready(function() {
-          $('.doctors').each(function( index ) {
-              if (!$(this).text())
-              $(this).parent().parent().parent().remove();
-          });
-      });
+                  span.card-title= "Department #"+department[0].Dno+": "+department[0].DName
+                  .row
+                    for doctor in department
+                      .col.s12.m4
+                        .card.primary.darken-1
+                            .card-content.white-text
+                                span.card-title= doctor.DoctorName
+                                ul.collection.primary
+                                    li.collection-item.primary= "SSN: "+doctor.Ssn
+                                    li.collection-item.primary= "Gender: "+doctor.Gender
+                                    li.collection-item.primary= "Date of Birth: "+doctor.BirthDate.toLocaleDateString()
+                                    li.collection-item.primary= "Address: "+doctor.Address
+                                    li.collection-item.primary= "Telephone: "+doctor.Telephone

@@ -10,13 +10,5 @@ module.exports = function(connection, log){
 				roomInfo: groupedInfo
 			});
 		});
-		// db.getDepartments(connection, log).then((departments) => {
-		// 	db.getRooms(connection, log).then((rooms) => {
-		// 		res.render('roomInfo.pug', {
-		// 			departments: departments,
-		// 			rooms: rooms
-		// 		});
-		// 	});
-		// });
 	};
 };

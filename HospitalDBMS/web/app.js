@@ -37,9 +37,6 @@ dbConnection.connect(config).then((connection) => {
 		}
 		next();
 	});
-	
-	//Departments
-	app.get('/*/departments', require('./server/routes/departments')(connection, log));
 
 	//Room Info page Route
 	app.get('/*/roominfo', require('./server/routes/roomInfo')(connection, log));
@@ -83,10 +80,6 @@ dbConnection.connect(config).then((connection) => {
 
 	//PayRoll
 	app.get('/*/PayRoll',require('./server/routes/misc/PayRoll')(connection, log));
-
-	//Room Info
-	app.get('/*/RoomInfo2',require('./server/routes/misc/RoomInfo2')(connection, log));
-
 
 	//Internal API Route
 	app.get('/*/patient/:hcn', require('./server/routes/patientreq')(connection, log));

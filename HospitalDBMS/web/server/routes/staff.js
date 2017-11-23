@@ -1,14 +1,13 @@
 'use strict';
 const db = require('../../../db/lib/db');
+const groupData = require('../groupData');
 
 module.exports = function(connection, log){
 	return function(req, res){
-		db.getDepartments(connection, log).then((departments) => {
-			db.getStaff(connection, log).then((staff) => {
-				res.render('staff.pug', {
-					departments: departments,
-					staff: staff
-				});
+		db.getStaff(connection, log).then((data) => {
+			const groupedInfo = groupData(data, 'Dno');
+			res.render('staff', {
+				departments: groupedInfo
 			});
 		});
 	};

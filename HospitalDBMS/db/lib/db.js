@@ -4,52 +4,10 @@
 const Promise = require('bluebird');
 const mysql = require('mysql');
 
-//Get Assigned
-const getAssigned = (connection, log) => {
-	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM assigned', (err, response) => {
-			if (err){
-				reject(err);
-			}else{
-				log.info('Got assigned');
-				resolve(response);
-			}
-		});
-	});
-};
-
-//Get caresfor
-const getCaresForPatient = (connection, log) => {
-	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM cares_for_patient', (err, response) => {
-			if (err){
-				reject(err);
-			}else{
-				log.info('Got caresfor');
-				resolve(response);
-			}
-		});
-	});
-};
-
-//Get Departments
-const getDepartments = (connection, log) => {
-	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM department', (err, response) => {
-			if (err) {
-				reject(err);
-			} else {
-				log.info('Got Departments');
-				resolve(response);
-			}
-		});
-	});
-};
-
 //Get Doctors
 const getDoctors = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM doctors', (err, response) => {
+		connection.query('SELECT * FROM doctor_by_department', (err, response) => {
 			if (err) {
 				reject(err);
 			} else {
@@ -74,26 +32,10 @@ const getPatients = (connection, log) => {
 	});
 };
 
-//Get patient records
-const getRecords = (connection, log) => {
-	return new Promise((resolve, reject) => {
-		connection.query(`SELECT P.*, R.*
-                          FROM patient AS P, patientrecords AS R
-                          WHERE P.Hcn=R.PHcn`, (err, response) => {
-				if (err) {
-					reject(err);
-				} else {
-					log.info('Got patient records');
-					resolve(response);
-				}
-			});
-	});
-};
-
 //Get Rooms
 const getRooms = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM rooms', (err, response) => {
+		connection.query('SELECT * FROM room_by_department', (err, response) => {
 			if (err) {
 				reject(err);
 			} else {
@@ -107,7 +49,7 @@ const getRooms = (connection, log) => {
 //Get staff
 const getStaff = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query('SELECT * FROM staff ORDER BY Dno', (err, response) => {
+		connection.query('SELECT * FROM staff_by_department', (err, response) => {
 			if (err) {
 				reject(err);
 			} else {
@@ -167,9 +109,9 @@ const getFindPatients = (connection, log) => {
 const getFindPatient = (connection, log, hcn) => {
 	return new Promise((resolve, reject) => {
 		let sql = `SELECT *
-							 FROM find_patient
-							 WHERE Hcn=?`;
-		let inserts = [hcn];
+							 FROM ??
+							 WHERE ??=?`;
+		let inserts = ['find_patient', 'Hcn', hcn];
 		sql = mysql.format(sql, inserts);
 		connection.query(sql, (err, response) => {
 			if (err){
@@ -182,30 +124,17 @@ const getFindPatient = (connection, log, hcn) => {
 	});
 };
 
-/*views required for marks
-	Available_Rooms - complete
-	Department_Senior - complete
-	find_patient  -- complete
-	Good_staff_by_dept - complete
-	Large_Salary_Positions - complete
-	num_patients_department -- complete
-	Patients_In_Rooms - complete
-	patients_per_doctor -- complete
-	pay_Roll - complete
-	roomInfo - complete
-*/
-//Get roomInfo view
+//Get patient by hcn
 const getRoomInfo = (connection, log) => {
 	return new Promise((resolve, reject) => {
-		connection.query(`SELECT *
-                          FROM roomInfo`, (err, response) => {
-				if (err) {
-					reject(err);
-				} else {
-					log.info('Got View roomInfo');
-					resolve(response);
-				}
-			});
+		connection.query(`SELECT * FROM roomInfo`, (err, response) => {
+			if (err){
+				reject(err);
+			}else {
+				log.info('Got Room Info');
+				resolve(response);
+			}
+		});
 	});
 };
 
@@ -297,22 +226,19 @@ const getDepartmentSenior = (connection, log) => {
 };
 
 module.exports = {
-	getAssigned,
-	getDepartments,
 	getDoctors,
 	getPatients,
-	getRecords,
 	getRooms,
 	getStaff,
 	getPatientsByDepartment,
 	getPatientsByDoctor,
 	getFindPatients,
 	getFindPatient,
+	getRoomInfo,
 	getAvailableRooms,
 	getDepartmentSenior,
 	getGoodStaffByDept,
 	getLargeSalaryPositions,
 	getPatientsInRooms,
-	getPayRoll,
-	getRoomInfo
+	getPayRoll
 };

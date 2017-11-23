@@ -9,24 +9,16 @@ block content
             .col.s12
               .card.primary.secondary.white-text
                 .card-content
-                  span.card-title= "Department #"+department.Dno+": "+department.DName
-                  .row.emps
-                    for emp in staff
-                      if department.Dno==emp.Dno
+                  span.card-title= "Department #"+department[0].Dno+": "+department[0].DName
+                  .row
+                    for staff in department
                         .col.s12.m4
                           .card.primary.darken-1
                               .card-content.white-text
-                                  span.card-title= emp.SName
+                                  span.card-title= staff.SName
                                   ul.collection.primary
-                                      li.collection-item.primary= "SSN: "+emp.Ssn
-                                      li.collection-item.primary= "Gender: "+emp.Gender
-                                      li.collection-item.primary= "Date of Birth: "+emp.BirthDate.toLocaleDateString()
-                                      li.collection-item.primary= "Address: "+emp.Address
-                                      li.collection-item.primary= "Telephone: "+emp.Telephone
-  script.
-    $(document).ready(function() {
-        $('.emps').each(function( index ) {
-            if (!$(this).text())
-            $(this).parent().parent().parent().remove();
-        });
-    });
+                                      li.collection-item.primary= "SSN: "+staff.Ssn
+                                      li.collection-item.primary= "Gender: "+staff.Gender
+                                      li.collection-item.primary= "Date of Birth: "+staff.BirthDate.toLocaleDateString()
+                                      li.collection-item.primary= "Address: "+staff.Address
+                                      li.collection-item.primary= "Telephone: "+staff.Telephone

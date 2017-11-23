@@ -9,23 +9,21 @@ block content
                 .card.secondary
                     .card-content.white-text
                         span.card-title= 'Doctor Name:'+ doctor[0].DoctorName
-                        .row.patients
+                        .row
                             for patient in doctor
                                 .col.s12.m4
                                     .card.primary.darken-1
                                         .card-content.white-text
-                                            span.card-title
-                                                span Patient Name:
-                                                a(href="patient/"+patient.Hcn)= patient.PName
+                                            span.card-title= "Patient Name: "+patient.PName
                                             ul.collection.primary
                                                 li.collection-item.primary= "HCN: "+patient.Hcn
-                                                li.collection-item.primary= "Start: "+patient.Start_Date
+                                                li.collection-item.primary= "Start: "+patient.Start_Date.toLocaleDateString()
                                                 if patient.End_Date != '0000-00-00 00:00:00'
-                                                    li.collection-item.primary= "End: "+patient.End_Date
+                                                    li.collection-item.primary= "End: "+patient.End_Date.toLocaleDateString()
                                                 li.collection-item.primary= "Address: "+patient.Address
                                                 li.collection-item.primary= "Telephone: "+patient.Telephone
                                                 li.collection-item.primary= "Gender: "+patient.Gender
-                                                li.collection-item.primary= "Date of Birth: "+patient.BirthDate                                       
+                                                li.collection-item.primary= "Date of Birth: "+patient.BirthDate.toLocaleDateString()                                       
 
                           
                   

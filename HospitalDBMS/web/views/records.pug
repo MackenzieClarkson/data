@@ -4,12 +4,12 @@ block content
   .container
     h2 Patient Records
     .row
-      each patient, index in patients
+      for patient in patients
         .col.s12
           .card.secondary
             .card-content.white-text
               span.card-title="Patient Name: "+patient[0].PName
-              p= "HCN: "+index
+              p= "HCN: "+patient[0].Hcn
               .row
                 for record in patient
                   .col.s12.m4
@@ -18,9 +18,9 @@ block content
                         span.card-title= "Case #: "+record.CaseN
                         ul.collection.primary
                           li.collection-item.primary= "Illnes: "+record.Illness
-                          li.collection-item.primary= "Start: "+record.Start_Date
+                          li.collection-item.primary= "Start: "+record.Start_Date.toLocaleDateString()
                           if record.End_Date != '0000-00-00 00:00:00'
-                            li.collection-item.primary= "End: "+record.End_Date
+                            li.collection-item.primary= "End: "+record.End_Date.toLocaleDateString()
                           li.collection-item.primary= "Medication: "+record.Medication
                           li.collection-item.primary= "Physician: "+record.Physician
                           li.collection-item.primary= "Symptoms: "+record.Symptoms
