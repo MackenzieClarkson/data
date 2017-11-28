@@ -6,7 +6,7 @@ module.exports = function(connection, log){
 	return function(req, res){
 		db.getStaff(connection, log).then((data) => {
 			const groupedInfo = groupData(data, 'Dno');
-			res.render('staff', {
+			res.render('staff.pug', {
 				departments: groupedInfo
 			});
 		});

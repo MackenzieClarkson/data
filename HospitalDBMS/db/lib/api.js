@@ -34,7 +34,6 @@ const getData = (log, config, connection) => {
 		Promise.all([
 			getRecords(log, {
 				url: config.urls.records,
-				headers: config.headers,
 				gzip: true
 			}, connection)
 		]).then(() => {
@@ -88,8 +87,8 @@ const insertRecords = (connection, data) => {
 		const query = `INSERT INTO patientrecords (
                       PHcn,
                       Illness,
-                      Start,
-                      End,
+                      Start_Date,
+                      End_Date,
                       Medication,
                       Physician,
                       Symptoms,

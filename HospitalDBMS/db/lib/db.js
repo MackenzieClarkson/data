@@ -60,6 +60,20 @@ const getStaff = (connection, log) => {
 	});
 };
 
+//Get patients and their records 
+const getRecords = (connection, log) => {
+	return new Promise((resolve, reject) => {
+		connection.query(`SELECT * FROM patient_records`, (err, response) =>{
+			if (err){
+				reject(err);
+			}else{
+				log.info("Got patient records");
+				resolve(response);
+			}
+		});
+	});
+}
+
 //Get patientBy Department count view
 const getPatientsByDepartment = (connection, log) => {
 	return new Promise((resolve, reject) => {
@@ -230,6 +244,7 @@ module.exports = {
 	getPatients,
 	getRooms,
 	getStaff,
+	getRecords,
 	getPatientsByDepartment,
 	getPatientsByDoctor,
 	getFindPatients,
