@@ -43,4 +43,4 @@ The command:
 npm run --script populate
 ```
 
-will an externally hosted json file and populate the patient records table using the data.
+will get an externally hosted json file and populate the patient records table using the data.
